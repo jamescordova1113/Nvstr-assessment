@@ -10,17 +10,18 @@ const App = () => {
 
   return (
     <div className="App">
-      <NavBar 
+      <NavBar
         setIsLoading={setIsLoading}
-        refresh={refresh} 
+        refresh={refresh}
         setRefresh={setRefresh}
       />
       <PortfolioSummary
         isLoading={isLoading}
-        setIsLoading={setIsLoading} 
-        refresh={refresh} />
+        setIsLoading={setIsLoading}
+        refresh={refresh}
+      />
     </div>
   );
-}
+};
 
 export default App;
