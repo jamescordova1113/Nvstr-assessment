@@ -4,13 +4,13 @@ import "./MarketOverview.css";
 
 const CustomMarketValue = (props) => {
   const { pricePercentage } = props;
-  
-  const color = pricePercentage > 0 ? "red" : "green";
-  const icon = pricePercentage > 0 ? 
+
+  const color = pricePercentage.toFixed(2) === "0.00" ? "grey" : pricePercentage > 0 ? "red" : "green";
+  const icon = pricePercentage.toFixed(2) === "0.00" ? "" : pricePercentage > 0 ? 
     <FaLongArrowAltDown className="stock-overview__icon" /> 
     : <FaLongArrowAltUp className="stock-overview__icon" />;
-  const sign = pricePercentage > 0 ? "-" : "+";
-  const percentageValue = pricePercentage > 0 ? pricePercentage : -pricePercentage;
+  const sign = pricePercentage.toFixed(2) === "0.00" ? "" : pricePercentage > 0 ? "-" : "+";
+  const percentageValue = pricePercentage >= 0 ? pricePercentage : -pricePercentage;
 
   return (
     <p style={{ color }}>

@@ -9,12 +9,12 @@ const CustomDayChange = (props) => {
 	const { diffValue, diffPercentage } = props;
 
 	const color = diffValue > 0 ? "red" : "green";
-	const sign = diffValue > 0 ? "-" : "+";
+	const sign =  diffValue > 0 ? "-" : "+";
 	const icon = diffValue > 0 ?
 		<FaLongArrowAltDown className="portfolio-day-change__icon" />
 		: <FaLongArrowAltUp className="portfolio-day-change__icon" />;
-	const value = diffValue > 0 ? diffValue : -diffValue;
-	const percent = diffPercentage > 0 ? diffPercentage : -diffPercentage;
+	const value = diffValue >= 0 ? diffValue : -diffValue;
+	const percent = diffPercentage >= 0 ? diffPercentage : -diffPercentage;
 
 	return (
 		<div className="portfolio-day-change" style={{ color }}>
@@ -27,11 +27,11 @@ const CustomDayChange = (props) => {
 	)
 }
 
-const PortfolioSummary = () => {
+const PortfolioSummary = (props) => {
+	const { refresh, isLoading, setIsLoading } = props;
 	const [portfolioValue, setPortfolioValue] = useState(0);
 	const [diffValue, setDiffValue] = useState(0);
 	const [diffPercentage, setDiffPercentage] = useState(0);
-	const [isLoading, setIsLoading] = useState(true);
 	const [securityPrices, setSecurityPrices] = useState(false);
 
 	useEffect(() => {
@@ -49,14 +49,13 @@ const PortfolioSummary = () => {
 			.catch((err) => {
 				console.log(err);
 			})
-	}, []);
+	}, [refresh]);
 
 	const getSecurityPrices = (arrayId) => {
 		ServerMock.getSecurityPrices(arrayId)
 			.then((response) => {
 				const responseValue = response.data;
 
-				console.log(responseValue);
 				setSecurityPrices(responseValue);
 				let portValSum = 0;
 				let portDifSum = 0;
