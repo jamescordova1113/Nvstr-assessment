@@ -1,3 +1,44 @@
 .portfolio-summary-container {
+  background-color: #f6f7fa;
+  margin: auto;
+  margin-top: 30px;
+  width: 700px;
+  height: 175px;
+  padding: 30px;
+}
 
+p {
+  margin: 0px !important;
+}
+
+.portfolio {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.portfolio-value__title {
+  font-size: 25px;
+  color: #808080;
+}
+
+.portfolio-value__number {
+  font-size: 50px;
+}
+
+.portfolio-day-change {
+  float: right;
+  font-size: 30px;
+  margin: 5px 15px 0 0;
+  display: flex;
+}
+
+.portfolio-day-change__icon {
+  margin: 30px;
+}
+
+.stock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

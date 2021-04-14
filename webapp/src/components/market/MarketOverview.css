@@ -1,0 +1,13 @@
+.stock-overview {
+  padding-top: 1em;
+  font-size: 25px;
+}
+
+.stock-overview > p {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.stock-overview__icon {
+  margin-top: 5px;
+}

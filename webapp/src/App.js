@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 import NavBar from "components/nav/NavBar";
 import PortfolioSummary from "components/portfolio/PortfolioSummary";
 
-import './App.css';
+import "./App.css";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <NavBar/>
-      <PortfolioSummary/>
+      <NavBar />
+      <PortfolioSummary />
     </div>
   );
 }
